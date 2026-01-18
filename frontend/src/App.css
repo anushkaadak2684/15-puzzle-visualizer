@@ -127,9 +127,9 @@ body::before {
 }
 
 .chart-wrapper {
-  width: 95%;
+  width: 100%;
   max-width: 1000px;
-  margin-top: 60px;
+  margin: 60px auto;
   padding: 30px;
   background: #0c0c0c;
   border-radius: 22px;
