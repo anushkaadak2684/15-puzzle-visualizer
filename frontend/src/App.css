@@ -104,14 +104,21 @@ body::before {
   transform: translateY(-2px);
 }
 
-.result-table {
+.table-wrapper {
   width: 100%;
-  max-width: 900px;
+  overflow-x: auto;
   margin: 40px auto;
+}
+
+.result-table {
+  width: 95%;
+  max-width: 900px;
+  min-width: 650px;
+  margin: 0 auto;
   border-collapse: collapse;
   background: #0c0c0c;
   border-radius: 18px;
-  overflow-x: auto;
+  overflow: hidden;
   box-shadow: 0 25px 60px rgba(0,0,0,0.8);
 }
 
