@@ -4,12 +4,16 @@
   box-sizing: border-box;
 }
 
+html, body {
+  width: 100%;
+  overflow-x: hidden;
+}
+
 body {
   font-family: "Inter", "Segoe UI", sans-serif;
   background: radial-gradient(circle at top, #111 0%, #000 70%);
   min-height: 100vh;
   color: #eaeaea;
-  overflow-x: hidden;
 }
 
 body::before {
@@ -28,16 +32,18 @@ body::before {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 50px 20px 80px;
+  padding: 40px 16px 80px;
+  width: 100%;
 }
 
 .app h1 {
-  font-size: 2.8rem;
+  font-size: 2.6rem;
   font-weight: 800;
   margin-bottom: 30px;
   color: #ff3cac;
   letter-spacing: 1px;
   text-align: center;
+  width: 100%;
 }
 
 .board {
@@ -77,6 +83,8 @@ body::before {
   display: flex;
   gap: 22px;
   margin-bottom: 50px;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .controls button {
@@ -96,21 +104,14 @@ body::before {
   transform: translateY(-2px);
 }
 
-.table-wrapper {
-  width: 100%;
-  overflow-x: auto;
-  margin: 40px auto;
-}
-
 .result-table {
   width: 100%;
-  min-width: 650px;
   max-width: 900px;
-  margin: auto;
+  margin: 40px auto;
   border-collapse: collapse;
   background: #0c0c0c;
   border-radius: 18px;
-  overflow: hidden;
+  overflow-x: auto;
   box-shadow: 0 25px 60px rgba(0,0,0,0.8);
 }
 
@@ -121,81 +122,60 @@ body::before {
 
 .result-table th,
 .result-table td {
-  padding: 16px 20px;
+  padding: 14px 16px;
   text-align: center;
+  font-size: 0.95rem;
 }
 
 .result-table tbody tr {
   border-bottom: 1px solid rgba(255,255,255,0.05);
 }
 
-.result-table tbody tr:last-child {
-  border-bottom: none;
-}
-
 .chart-wrapper {
   width: 100%;
   max-width: 1000px;
-  margin: 60px auto;
-  padding: 30px;
+  margin: 50px auto;
+  padding: 24px;
   background: #0c0c0c;
   border-radius: 22px;
   box-shadow: 0 30px 70px rgba(0,0,0,0.9);
+  overflow-x: hidden;
 }
 
 .chart-wrapper canvas {
   width: 100% !important;
-  height: 420px;
+  max-width: 100%;
+  height: auto !important;
+  display: block;
+  margin: 0 auto;
 }
 
-@media (max-width: 768px) {
-  .chart-wrapper {
-    margin: 40px 12px;
-    padding: 20px;
-  }
-
-  .chart-wrapper canvas {
-    height: 320px;
-  }
-
-  .result-table th,
-  .result-table td {
-    padding: 12px 14px;
-    font-size: 0.9rem;
-  }
-}
-
-@media (max-width: 600px) {
+@media (max-width: 700px) {
   .app h1 {
     font-size: 2rem;
-    letter-spacing: 0.5px;
     padding: 0 10px;
+  }
+
+  .board {
+    grid-template-columns: repeat(4, 70px);
+    grid-template-rows: repeat(4, 70px);
+    gap: 10px;
+    padding: 16px;
+  }
+
+  .tile {
+    width: 70px;
+    height: 70px;
+    font-size: 1.6rem;
   }
 
   .controls {
     flex-direction: column;
+    gap: 14px;
   }
 
-  .chart-wrapper canvas {
-    height: 260px;
-  }
-}
-
-@media (max-width: 480px) {
   .chart-wrapper {
     padding: 16px;
-  }
-}
-
-@media (max-width: 700px) {
-  .board {
-    grid-template-columns: repeat(4, 75px);
-    grid-template-rows: repeat(4, 75px);
-  }
-
-  .tile {
-    width: 75px;
-    height: 75px;
-    font-size: 1.7rem;
+    margin: 40px auto;
   }
 }
